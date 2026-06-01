@@ -1,5 +1,6 @@
 try:
     import requests
+    from urllib.parse import quote
 except ImportError:
     print("Error: requests module is not installed. Install it with: pip install requests")
     exit(1)
@@ -9,15 +10,13 @@ def get_weather(city):
     if not isinstance(city, str) or not city.strip():
         print(f"Error: Invalid city name '{city}' — must be a non-empty string")
         return
-    
-    # Sanitize: strip whitespace, no special characters that could break the URL
+
+    # Sanitize: strip whitespace and use proper URL encoding
     city = city.strip()
-    if not city.replace(" ", "").isalnum():
-        print(f"Error: City name '{city}' contains invalid characters")
-        return
-    
+    encoded_city = quote(city, safe='')
+
     try:
-        url = f"https://wttr.in/{city}?format=j1"
+        url = f"https://wttr.in/{encoded_city}?format=j1"
         response = requests.get(url, timeout=5)
         response.raise_for_status()
         data = response.json()
@@ -41,8 +40,9 @@ def get_weather_for_cities(cities):
     if not isinstance(cities, list):
         print("Error: Input must be a list of cities")
         return
-    
+
     for city in cities:
         get_weather(city)
 
-get_weather_for_cities(["Kansas City", "New York", "Los Angeles"])
+if __name__ == "__main__":
+    get_weather_for_cities(["Kansas City", "New York", "Los Angeles"])
