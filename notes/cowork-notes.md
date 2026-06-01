@@ -46,3 +46,11 @@ When to use each:
 
 5. **"I want to run the same code review process on every file I write this summer."** → **Cowork + custom skill**
    - Repeating task, needs consistent behavior, worth automating as a reusable skill
+
+---
+
+## Computer Use — My Rules
+
+1. Know which files I am sharing with Claude before each session.
+2. Keep track of all changes and iterations that take place.
+3. Know what is on my screen, what Claude may have access to in my browser and laptop when sharing my screen and Chrome access.
