@@ -1,0 +1,23 @@
+{
+  "skill_name": "code-review",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "hey can you review this? it's a function that fetches user data from my db:\n\nimport sqlite3\n\ndef get_user(username):\n    conn = sqlite3.connect('users.db')\n    cursor = conn.cursor()\n    query = f\"SELECT * FROM users WHERE username = '{username}'\"\n    cursor.execute(query)\n    result = cursor.fetchone()\n    return result",
+      "expected_output": "Structured checklist covering correctness (no error handling, connection never closed), readability, best practices (no context manager), security (SQL injection via f-string), suggestions (use parameterized queries, use context manager), and a learning recommendation about SQL injection or parameterized queries.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "review my code please\n\ndef fibonacci(n):\n    if n <= 0:\n        return []\n    elif n == 1:\n        return [0]\n    fib = [0, 1]\n    for i in range(2, n):\n        fib.append(fib[i-1] + fib[i-2])\n    return fib\n\nprint(fibonacci(10))",
+      "expected_output": "Checklist noting the code is mostly correct and readable. Best practices: good. No security issues. Suggestions might include type hints, docstring, handling negative inputs explicitly. Learning rec should be something relevant like type hints or testing.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "can you look at this and tell me what's wrong\n\nconst API_KEY = 'sk-abc123secretkey';\n\nasync function fetchData(userId) {\n  const res = await fetch(`https://api.example.com/users/${userId}`);\n  const data = res.json();\n  return data.name;\n}",
+      "expected_output": "Security flag for hardcoded API key. Correctness issue: missing await on res.json(), missing error handling. Readability fine. Best practices: should use env vars for secrets. Suggestions: move key to env, add error handling, add await. Learning rec about environment variables or async/await.",
+      "files": []
+    }
+  ]
+}
