@@ -6,8 +6,8 @@ Documents Xander's hands-on learning with Claude's Cowork mode, capturing experi
 ## prompting-notes.md
 Records an exercise comparing two prompts to the same task, demonstrating how vague instructions produce generic, unhelpful responses while detailed prompts with specific context and constraints yield comprehensive, actionable outputs. Uses the Open-Meteo API as the example task, illustrating a core lesson: prompt quality directly impacts answer quality and usefulness.
 
-## prompting-notes1.md
-A duplicate of prompting-notes.md containing the same Exercise 2 content about the impact of prompt specificity on response quality when requesting Open-Meteo API implementation details.
+## tool-guide.md
+Claude Chat is best for quick explanations and simple tasks, while Cowork gives Claude access to your files and computer to make autonomous changes and build things directly in your workspace. The key difference is that Chat advises you, but Cowork actually does the work for you while keeping everything saved where it belongs.
 
 ## weather.py
 A production-quality Python script that fetches and displays current weather data for multiple cities using the wttr.in API. Demonstrates best practices including robust input validation, string sanitization to prevent URL injection, comprehensive error handling for timeout and HTTP errors, and graceful degradation with informative error messages for each failure mode.
